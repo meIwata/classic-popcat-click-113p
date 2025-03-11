@@ -95,12 +95,26 @@
     }
     // 3. 註冊滑鼠按下的事件，呼叫計數器累加 function
     // 註冊滑鼠按下的時候，更新計數器的顯示
-    document.getElementById("p").addEventListener("click", function() {
+    // 當滑鼠按下，切換張嘴圖片
+    document.getElementById("p").addEventListener("mousedown", function() {
+        // 切換圖片
+        catImg.id = "op";
+        // 計數器累加
         addCount();
         // 更新顯示
         catImg.innerText = count;
     });
-
+    // 註冊滑鼠放開的事件，切換張嘴圖片
+    document.getElementById("p").addEventListener("mouseup", function() {
+        // 切換圖片
+        catImg.id = "p";
+    });
+    // 當滑鼠按下，播放 pops/pop1.mp3
+    document.getElementById("p").addEventListener("mousedown", function() {
+        // 播放音效
+        const audio = new Audio("pops/pop1.mp3");
+        audio.play();
+    });
 
 
 </script>
